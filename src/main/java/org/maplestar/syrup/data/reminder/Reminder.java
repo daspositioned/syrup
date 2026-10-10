@@ -48,6 +48,17 @@ public record Reminder(int id, long userID, LocalDateTime time, @Nullable String
 
     @Override
     public int compareTo(@NotNull Reminder reminder) {
-        return time.compareTo(reminder.time);
+        int result = time.compareTo(reminder.time);
+        return result != 0 ? result : Integer.compare(id, reminder.id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Reminder other && other.id == id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id);
     }
 }

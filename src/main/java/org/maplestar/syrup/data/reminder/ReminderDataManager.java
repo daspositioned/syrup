@@ -187,7 +187,7 @@ public class ReminderDataManager {
      * @return false on database failure, otherwise true
      */
     public boolean deleteReminder(Reminder reminder) {
-        reminderCache.remove(reminder);
+        reminderCache.removeIf(cached -> cached.id() == reminder.id());
 
         try (var connection = databaseManager.getConnection()) {
             try (var statement = connection.prepareStatement("DELETE FROM Reminders WHERE id = ?")) {
