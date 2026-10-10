@@ -13,7 +13,7 @@ import org.maplestar.syrup.utils.EmbedColors;
 import org.maplestar.syrup.utils.EmbedMessage;
 
 /**
- * The /remindme-nuke command for deleting all reminders.
+ * The /reminder command for managing reminders.
  */
 public class ReminderCommand extends AbstractCommand {
     private final ReminderDataManager reminderDataManager;
